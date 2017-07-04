@@ -1,0 +1,22 @@
+<div class="container clear">
+    <div class="side"></div>
+    <div class="main">
+        
+        {{#each model as |item|}}
+            <div class="cell">
+                {{#link-to "user" item.user_id}}
+                    <img src={{item.author.avatar_url}} >
+                {{/link-to}}
+                <span class="reply_visit">
+                    <span title="回复数">{{item.reply_count}}</span>/
+                    <span title="点击数">{{item.visit_count}}</span>
+                </span>
+                <span class="tab">{{item.tab}}</span>
+                {{#link-to 'artical' item.id class="cell_title"}}{{item.title}}{{/link-to}}
+                <div class="stuff">创建于：<span>{{item.create_at}}</span><br>
+                </div>
+            </div>
+        {{/each}}
+    
+    </div>
+</div>

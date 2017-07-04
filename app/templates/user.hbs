@@ -1,0 +1,16 @@
+<div class="container clear">
+    <div class="side">
+    </div>
+    <div class="main">
+      <div class="back">回首页</div>
+      <div class="user_introduce">
+        <img :src="userInfo.avatar_url">
+        <span class="user_name">{{userInfo.loginname}}</span>
+        <ul>
+          <li><i class="icon_score"></i><span>{{userInfo.score+" 积分"}}</span></li>
+          <li><i class="icon_git"></i><span>{{userInfo.githubUsername}}</span></li>
+          <li><i class="icon_regtime"></i><span>注册时间 {{userInfo.create_at}}</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
