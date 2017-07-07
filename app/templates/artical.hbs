@@ -1,1 +1,37 @@
-this is a artical page
+<div class="container clear">
+    <div class="side">
+    </div>
+    <div class="main" id="artical_panel">
+      <h2>{{artical.title}}</h2>
+      <div id="artical_tip">
+        <span>发布于 {{artical.create_at}}</span>
+        <span>作者 
+            {{#link-to 'user' artical.author.loginname}}
+            {{artical.author.loginname}}
+            {{/link-to}}
+        </span>
+        <span>{{artical.visit_count}} 次浏览</span>
+      </div>
+      <div id="artical_main" v-html="artical.content">
+      </div>
+      <div id="artical_reply">
+        <h4>回复区</h4>
+        {{#each artical.replies as |reply|}}
+            <div class="reply_cell">
+                <div class="reply_tag">
+                    {{#link-to 'user' reply.author.loginname}}
+                        <img src={{reply.author.avatar_url}} >
+                    {{/link-to}}
+                    <div class="reply_author">{{reply.author.loginname}}
+                    </div>
+                    <div class="reply_time">{{reply.index}}楼 {{reply.create_at}}
+                    </div>
+                </div>
+                <div class="reply_content">
+                    {{{reply.content}}}
+                </div>
+            </div>
+        {{/each}}
+      </div>
+    </div>
+</div>

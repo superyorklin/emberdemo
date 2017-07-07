@@ -2,15 +2,45 @@
     <div class="side">
     </div>
     <div class="main">
-      <div class="back">回首页</div>
-      <div class="user_introduce">
-        <img :src="userInfo.avatar_url">
-        <span class="user_name">{{userInfo.loginname}}</span>
-        <ul>
-          <li><i class="icon_score"></i><span>{{userInfo.score+" 积分"}}</span></li>
-          <li><i class="icon_git"></i><span>{{userInfo.githubUsername}}</span></li>
-          <li><i class="icon_regtime"></i><span>注册时间 {{userInfo.create_at}}</span></li>
-        </ul>
-      </div>
+        <div class="back">{{#link-to 'home'}}回首页{{/link-to}}</div>
+        <div class="user_introduce">
+			<img src={{userInfo.avatar_url}}>
+			<span class="user_name">{{userInfo.loginname}}</span>
+			<ul>
+				<li><i class="icon_score"></i><span>{{userInfo.score}}  积分</span></li>
+				<li><i class="icon_git"></i><span>{{userInfo.githubUsername}}</span></li>
+				<li><i class="icon_regtime"></i><span>注册时间 {{userInfo.create_at}}</span></li>
+			</ul>
+		</div>
+      	<div class="topic_reply">
+        	<p class="title">最近参与的话题</p>
+			{{#each userInfo.recent_replies as |item|}}
+			<div class="topic_cell">
+				<div>
+					{{#link-to 'user' item.author.loginname }}
+						<img src={{item.author.avatar_url}} class="topic_img" >
+					{{/link-to}}
+					{{#link-to 'artical' item.id}}
+						<p class="userTitle">{{item.title}}</p>
+					{{/link-to}}
+				</div>
+			</div>
+			{{/each}}
+        </div>
+		<div class="topic_reply">
+			<p class="title">最近创建的话题</p>
+			{{#each userInfo.recent_topics as |item|}}
+			<div class="topic_cell">
+				<div>
+					{{#link-to 'user' item.author.loginname }}
+						<img src={{item.author.avatar_url}} class="topic_img" >
+					{{/link-to}}
+					{{#link-to 'artical' item.id}}
+						<p class="userTitle">{{item.title}}</p>
+					{{/link-to}}
+				</div>
+			</div>
+			{{/each}}
+		</div>
     </div>
-  </div>
+</div>

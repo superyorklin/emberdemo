@@ -1,8 +1,6 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
-    items: '',
-
     itemsGet: function(){
         var ctrl = this;
         $.get("https://cnodejs.org/api/v1/topics",{
@@ -15,7 +13,6 @@ export default Ember.Controller.extend({
                 val.user_id = val.author.loginname;
             })
             ctrl.set("model",Ember.A(res.data));
-            console.log(ctrl.get("model"));
         })
-    }
+    },
 })

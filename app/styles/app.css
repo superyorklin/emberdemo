@@ -249,14 +249,14 @@ li i{
   height: 20px;
 }
 .icon_score{
-  background: url(../src/assets/score.svg);
+  background: url(../score.svg);
   background-size: cover;
 }
 .icon_git{
-    background: url(../src/assets/git.svg);  background-size: cover;
+    background: url(../git.svg);  background-size: cover;
 }
 .icon_regtime{
-    background: url(../src/assets/regtime.svg);  background-size: cover;
+    background: url(../regtime.svg);  background-size: cover;
 }
 p.title{
   padding-left: 1em;
